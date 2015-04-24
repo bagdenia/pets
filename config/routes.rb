@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  get '/asdf' => 'welcome#index'
+  resources :pets
+  get '/pets' => 'pets#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
