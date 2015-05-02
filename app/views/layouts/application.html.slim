@@ -2,7 +2,7 @@ doctype html
 
 html
   head
-    title Pets
+    title Оставь животное соседу
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
@@ -10,5 +10,13 @@ html
   body
     .ui.one.column.stackable.center.aligned.page.grid
       .column.twelve.wide
+        .ui.menu
+          a.active.item href=pets_path
+            i.icon.users
+            | Животные
+          .item
+            i.icon.paw
+            |Владельцы
+          .item Регистрация
         .ui.segment.piled
           = yield
