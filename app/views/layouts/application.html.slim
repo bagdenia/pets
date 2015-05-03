@@ -8,15 +8,16 @@ html
     = csrf_meta_tags
 
   body
-    .ui.one.column.stackable.center.aligned.page.grid
+    .ui.one.column.stackable.left.aligned.page.grid
       .column.twelve.wide
         .ui.menu
-          a.active.item href=pets_path
+          a.item href=pets_path class=('active' if current_page?(controller: 'pets'))
             i.icon.users
             |Владельцы
-          .item
+          a.item class=('active' if current_page?(controller: 'pets'))
             i.icon.paw
             | Животные
-          .item Регистрация
+          a.item class=('active' if current_page?(controller: 'pets'))
+            | Регистрация 
         .ui.segment.piled
           = yield
