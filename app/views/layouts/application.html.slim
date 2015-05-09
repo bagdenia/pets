@@ -25,8 +25,9 @@ html
             | Животные
           a.item href=new_user_session_path class=('active' if params[:controller] == 'devise/users')
             | Регистрация 
-          .right.menu
-            .item
-              | Привет, #{current_user.email}
+          - if current_user
+             .right.menu
+             .item
+               | Привет, #{current_user.email}
         .ui.segment.piled
           = yield
