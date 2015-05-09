@@ -4,7 +4,7 @@ class PetsController < ApplicationController
   # GET /pets
   # GET /pets.json
   def index
-    @pets = Pet.all
+    @pets = current_user.pets.all
   end
 
   # GET /pets/1
@@ -14,7 +14,7 @@ class PetsController < ApplicationController
 
   # GET /pets/new
   def new
-    @pet = Pet.new
+    @pet = current_user.pets.new
   end
 
   # GET /pets/1/edit
@@ -24,7 +24,7 @@ class PetsController < ApplicationController
   # POST /pets
   # POST /pets.json
   def create
-    @pet = Pet.new(pet_params)
+    @pet = current_user.pets.new(pet_params)
 
     respond_to do |format|
       if @pet.save
@@ -64,7 +64,7 @@ class PetsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_pet
-      @pet = Pet.find(params[:id])
+      @pet = current_user.pets.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -8,16 +8,25 @@ html
     = csrf_meta_tags
 
   body
-    .ui.one.column.stackable.left.aligned.page.grid
-      .column.twelve.wide
+    .ui.one.column.stackable.center.aligned.page.grid
+      .column.twelve.wide.left.aligned
         .ui.menu
-          a.item href=pets_path class=('active' if current_page?(controller: 'pets'))
+          a.item href=pets_path class=('active' if params[:controller] == 'pets')
+            i.icon.pointing.left
+            |Оставить
+          /a.item href=pets_path class=('active' if params[:controller] == 'pets')
+            i.icon.users
+            |Взять
+          a.item href=pets_path class=('active' if params[:controller] == 'pets')
             i.icon.users
             |Владельцы
-          a.item class=('active' if current_page?(controller: 'pets'))
+          a.item class=('active' if params[:controller] == 'pets')
             i.icon.paw
             | Животные
-          a.item class=('active' if current_page?(controller: 'pets'))
+          a.item href=new_user_session_path class=('active' if params[:controller] == 'devise/users')
             | Регистрация 
+          .right.menu
+            .item
+              | Привет, #{current_user.email}
         .ui.segment.piled
           = yield

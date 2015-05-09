@@ -171,7 +171,7 @@ group :development do
   gem 'guard-livereload',  require: false
   gem 'guard-rspec',       require: false
   gem 'guard-bundler'
-  # gem 'better_errors'
+  gem 'better_errors'
   #gem 'binding_of_caller'
 
   #gem 'rails-erd' # for generating diagrams, requires graphviz
