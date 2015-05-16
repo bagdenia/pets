@@ -1,4 +1,4 @@
-= form_for @pet_image do |f|
+= form_for pet_image_path @pet, @pet_image do |f|
   - if @pet_image.errors.any?
     #error_explanation
       h2 = "#{pluralize(@pet_image.errors.count, "error")} prohibited this pet_image from being saved:"
