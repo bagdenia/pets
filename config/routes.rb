@@ -5,8 +5,12 @@ Rails.application.routes.draw do
     resources :images, controller: 'pet_images'
   end
 
+  devise_for :users
+  resources :users, path: 'my_users',only: [:index, :show, :edit]
+
+
+
   # resources :pet_images
 
-  devise_for :users
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 end
