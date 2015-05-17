@@ -1,4 +1,4 @@
-h1 Listing pet_images
+h1 Listing pet_image
 
 table
   thead
@@ -10,7 +10,7 @@ table
   tbody
     - @pet_images.each do |pet_image|
       tr
-        td = link_to 'Show', [@pet, pet_image]
+        td = link_to 'Show', pet_image_path(@pet, pet_image)
         td = link_to 'Edit', edit_pet_image_path(@pet, pet_image)
         td = link_to 'Destroy', pet_image_path(@pet, pet_image), data: {:confirm => 'Are you sure?'}, :method => :delete
 
