@@ -1,3 +1,17 @@
 -@users.each do |u|
 
   h1 = u.email
+div id='map' style="height: 400px"
+script src="//api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"
+
+coffee:
+  # Дождёмся загрузки API и готовности DOM.
+  ymaps.ready ->
+    # Создание экземпляра карты и его привязка к контейнеру с
+    # заданным id ("map").
+    window.myMap = new (ymaps.Map)('map',
+      center: [
+        55.76
+        37.64
+      ]
+      zoom: 10)
