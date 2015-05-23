@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   end
 
   devise_for :users
-  resources :users, path: 'my_users',only: [:index, :show, :edit]
+  # resources :users, path: 'my_users',only: [:index, :show, :edit]
+  resources :users, only: [:index, :show, :edit]
 
 
 

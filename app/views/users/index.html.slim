@@ -1,7 +1,7 @@
 -@users.each do |u|
 
   h1 = u.email
-div id='map' style="height: 400px"
+div id='map' style="height: 500px; width: 100%"
 script src="//api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"
 
 coffee:
@@ -15,3 +15,7 @@ coffee:
         37.64
       ]
       zoom: 10)
+    $.get '/users.json', (users,status,c)->
+      myMap.geoObjects.add(new ymaps.Placemark([u.lat,u.lng],
+        hintContent: u.email,
+        balloonContent: u.balloon)) for u in users

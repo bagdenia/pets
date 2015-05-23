@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   # GET /pets
   # GET /pets.json
   def index
-  @users = User.all
+    @users = User.includes(pets: :images).all
   end
 
   # GET /pets/1
