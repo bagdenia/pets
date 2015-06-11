@@ -1,4 +1,4 @@
-guard 'livereload' do
+guard 'livereload', port: 35729  do
   interactor :off
   watch(%r{app/views/.+\.(erb|haml|slim)$})
   watch(%r{app/helpers/.+\.rb})
