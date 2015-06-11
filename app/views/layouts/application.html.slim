@@ -20,7 +20,7 @@ html
           a.item href=users_path class=('active' if params[:controller] == 'users')
             i.icon.users
             |Владельцы
-          a.item class=('active' if params[:controller] == 'pets')
+          a.item href=pets_path class=('active' if params[:controller] == 'pets')
             i.icon.paw
             | Животные
           a.item href=new_user_session_path class=('active' if params[:controller] == 'devise/users')
