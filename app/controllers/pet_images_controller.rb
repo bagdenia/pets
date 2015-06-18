@@ -31,7 +31,8 @@ class PetImagesController < ApplicationController
 
     respond_to do |format|
       if @pet_image.save
-        format.html { redirect_to pet_image_path(@pet, @pet_image), notice: 'Pet image was successfully created.' }
+        # format.html { redirect_to pet_image_path(@pet, @pet_image), notice: 'Pet image was successfully created.' }
+        format.html { redirect_to pet_images_path(@pet), notice: 'Pet image was successfully created.' }
         format.json { render :show, status: :created, location: @pet_image }
       else
         format.html { render :new }
@@ -72,6 +73,6 @@ class PetImagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pet_image_params
-      params[:pet_image]
+      params[:pet_image].permit :image
     end
 end

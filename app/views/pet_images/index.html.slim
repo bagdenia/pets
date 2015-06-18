@@ -8,7 +8,7 @@ table
       th
 
   .ui.four.cards
-    - (@pet_images*8).each do |pet_image|
+    - (@pet_images*4).each do |pet_image|
       .card
         .ui.image = image_tag pet_image.image.url
         /.header = pet_image.id
