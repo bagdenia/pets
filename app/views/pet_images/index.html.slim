@@ -19,8 +19,14 @@ table
 
 /= link_to 'New Pet image', new_pet_image_path(@pet)
 br
-.ui.button 
-  a.item href = new_pet_image_path(@pet)
-    i.icon.photo
+
+= link_to new_pet_image_path(@pet), class: 'button ui' do
+  i.icon.photo
+  | Добавить фото
+
+/.ui.button 
+  i.icon.photo
+  /a href=new_pet_image_path(@pet)
     |Добавить фото
+  = link_to 'Добавить фото', new_pet_image_path(@pet), class: 'link ui'
  
