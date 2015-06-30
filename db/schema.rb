@@ -11,10 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150522202446) do
+ActiveRecord::Schema.define(version: 20150630210843) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "accepted_pet_kinds", id: false, force: :cascade do |t|
+    t.integer "pet_kind_id", null: false
+    t.integer "user_id",     null: false
+  end
+
+  add_index "accepted_pet_kinds", ["user_id", "pet_kind_id"], name: "index_accepted_pet_kinds _on_user_id_and_pet_kind_id", unique: true, using: :btree
 
   create_table "pet_images", force: :cascade do |t|
     t.integer "pet_id",   null: false
@@ -26,13 +33,19 @@ ActiveRecord::Schema.define(version: 20150522202446) do
 
   add_index "pet_images", ["pet_id"], name: "index_pet_images_on_pet_id", using: :btree
 
+  create_table "pet_kinds", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "pets", force: :cascade do |t|
     t.string   "name"
-    t.string   "kind"
     t.string   "gender"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
+    t.integer  "kind_id"
   end
 
   add_index "pets", ["user_id"], name: "index_pets_on_user_id", using: :btree
@@ -58,5 +71,6 @@ ActiveRecord::Schema.define(version: 20150522202446) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "pet_images", "pets"
+  add_foreign_key "pets", "pet_kinds", column: "kind_id"
   add_foreign_key "pets", "users"
 end
