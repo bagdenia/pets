@@ -16,7 +16,7 @@ table.ui.table
     - @pets.each do |pet|
       tr
         td = pet.name
-        td = pet.kind
+        td = Pet::Kind.find(pet.kind_id).name
         td = pet.gender
         td
           - pet.images.each do |img|
