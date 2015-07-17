@@ -49,6 +49,7 @@ gem 'airbrake', group: [:production]
 # gem 'newrelic_rpm'
 
 # models
+gem 'faker'
 gem 'jbuilder', '~> 2.0' # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jpbuilder' # for autoadding callbacks to the above
 # gem 'bcrypt-ruby', '~> 3.1.2' # Use ActiveModel has_secure_password

@@ -5,3 +5,18 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+ActiveRecord::Base.transaction do
+
+  100.times do
+
+    User.create! \
+      email: Faker::Internet.email,
+      # password: Faker::Internet.password(10, 20),
+      # name: Faker::Names.first_name
+      lat: rand(57.0..58.0),
+      lng: rand(57.0..58.0)
+
+  end
+
+end
