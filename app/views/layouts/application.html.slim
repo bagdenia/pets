@@ -21,10 +21,11 @@ html
                                                   && params[:action] == 'index')
             i.icon.users
             |Владельцы
-          a.item href=user_path(current_user.id) class=('active' if params[:controller] == 'users' \
+          -if current_user 
+            a.item href=user_path(current_user.id) class=('active' if params[:controller] == 'users' \
                                                                   && params[:action] == 'show')
-            i.icon.eye
-            |Мои настройки
+              i.icon.eye
+              |Мои настройки
           a.item href=pets_path class=('active' if params[:controller] == 'pets')
             i.icon.paw
             | Животные
