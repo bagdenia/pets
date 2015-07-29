@@ -1,0 +1,14 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @user.email
+p
+  strong Accepted Kinds:
+  ul
+    - @user.acceptable_pets.each do |acc_pet| 
+      li = acc_pet.name
+
+= link_to 'Edit', edit_user_path(@user)
+'|
+= link_to 'Back', users_path
