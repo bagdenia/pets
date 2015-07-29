@@ -1,6 +1,6 @@
--@users.each do |u|
+- @users.each do |u|
+  h1 = link_to u.email, user_path(u)
 
-  h1 = u.email
 div id='map' style="height: 500px; width: 100%"
 script src="//api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"
 
