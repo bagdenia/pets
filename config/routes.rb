@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
 
+  resources :messages
+
   root 'pets#index'
   resources :pets do
+    collection do
+      get 'hren'
+    end
     resources :images, controller: 'pet_images'
   end
 

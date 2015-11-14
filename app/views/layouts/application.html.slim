@@ -29,8 +29,12 @@ html
           a.item href=pets_path class=('active' if params[:controller] == 'pets')
             i.icon.paw
             | Животные
-          a.item href=new_user_session_path class=('active' if params[:controller] == 'devise/users')
-            | Регистрация 
+          - if current_user 
+            a.item href=new_user_session_path class=('active' if params[:controller] == 'devise/users')
+              | Сообщения
+          - else
+            a.item href=new_user_session_path class=('active' if params[:controller] == 'devise/users')
+              | Регистрация
           = link_to 'Выход', destroy_user_session_path, method: :delete,class:"item"
           - if current_user
              .right.menu
