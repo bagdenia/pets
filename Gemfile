@@ -166,6 +166,7 @@ end
 
 group :development do
   gem 'quiet_assets'
+  gem 'ctags-bundler'
   gem 'rack-livereload'
 
   gem 'guard-livereload',  require: false

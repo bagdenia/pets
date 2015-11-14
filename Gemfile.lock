@@ -129,6 +129,8 @@ GEM
       sprockets (< 2.13)
     connection_pool (2.1.1)
     crass (1.0.1)
+    ctags-bundler (0.0.1)
+      bundler (>= 1.0)
     dalli (2.7.2)
     database_cleaner (1.4.0)
     debug_inspector (0.0.2)
@@ -682,6 +684,7 @@ DEPENDENCIES
   codemirror-rails
   coffee-rails (~> 4.0.0)
   compass-rails
+  ctags-bundler
   dalli
   database_cleaner
   deep_cloneable (~> 2.0.0)
