@@ -1,0 +1,12 @@
+h1 Chat with #{@sender.email}
+
+table.ui.table
+  - @messages.each do |message|
+    tr
+      td = message.body
+      td = l message.created_at, format: :short
+
+= simple_form_for Message.new(receiver: @sender) do |f|
+  = f.input :body
+  = f.input :receiver_id, as: :hidden
+  = f.submit

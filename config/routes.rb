@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :messages
+  resources :messages, only: [:index, :create]
 
   root 'pets#index'
   resources :pets do
@@ -12,7 +12,9 @@ Rails.application.routes.draw do
 
   devise_for :users
   # resources :users, path: 'my_users',only: [:index, :show, :edit]
-  resources :users, only: [:index, :show, :edit]
+  resources :users, only: [:index, :show, :edit] do
+    resources :messages, only: [:new]
+  end
 
 
 

@@ -61,10 +61,6 @@ class PetsController < ApplicationController
     end
   end
 
-  def hren
-    render 'pet_images/hren', layout: 'blank'
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_pet

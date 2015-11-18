@@ -30,7 +30,7 @@ html
             i.icon.paw
             | Животные
           - if current_user 
-            a.item href=new_user_session_path class=('active' if params[:controller] == 'devise/users')
+            a.item href=messages_path class=('active' if params[:controller] == 'devise/users')
               | Сообщения
           - else
             a.item href=new_user_session_path class=('active' if params[:controller] == 'devise/users')
