@@ -9,6 +9,20 @@ class Message < ActiveRecord::Base
       user1.id, user2.id
   end
 
+  def self.participant user
+    where 'receiver_id = ? or sender_id = ?',
+      user.id, user.id
+  end
+
+  def mine? user
+    sender_id == user.id
+  end
+
+  def his? user
+    receiver_id == user.id
+  end
+
+
   def opponent user
     if sender == user then receiver else sender end
   end

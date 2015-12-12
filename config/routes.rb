@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :messages, only: [:index, :create]
+  resources :messages, only: [:index, :create] do
+    delete :index, on: :collection, action: :delete_many
+  end
 
   root 'pets#index'
   resources :pets do

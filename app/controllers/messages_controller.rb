@@ -40,6 +40,15 @@ class MessagesController < ApplicationController
     params.require(:message).permit(:receiver_id, :body)
   end
 
+  def delete_many
+    msgs = Message.
+            participant(current_user).
+            where('id in (?)', params[:ids].map(&:to_i))
+
+    msgs.select {|e| e.mine?(current_user) }.each {|e| e.update! sender_deleted: true}
+    msgs.select {|e| e. his?(current_user) }.each {|e| e.update! receiver_deleted: true}
+  end
+
   private
   def chat_room_path message
     new_user_message_path user_id: [message.sender,
