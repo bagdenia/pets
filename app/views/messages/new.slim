@@ -1,42 +1,32 @@
 h1 Chat with #{@sender.email}
 
-.ui.menu
-  a.item  
-  .right.menu
-    a.item onclick='delete_checked_messages()' Delete
-    a.item
-      | Read
-    a.item
-      | Unread
+= form_for :messages, url: '/messages/bulk_operation'do |f|
+  .ui.menu
+    a.item  
+    .right.menu
+      /a.item onclick='delete_checked_messages()' Delete
+      input.ui.input [type='submit'
+                      value='Delete Selected'
+                      name='operation_type'
+                      data-disable-with='...']
+      a.item
+        | Read
+      a.item
+        | Unread
 
-table.ui.table
-  - @messages.each do |message|
-    tr
-      td = message.body
-      td = l message.created_at, format: :short
-      td
-        input.ui.checkbox type='checkbox' data-message-id=message.id
-
-div class="ui action input" id='Zhenya'
-  input type="text" placeholder="Search..."
-  button class="ui button" Search
+  table.ui.table
+    - @messages.each do |message|
+      tr
+        td = message.sender.email
+        td = message.body.to_s
+        td = l message.created_at, format: :short
+        td
+          input.ui.checkbox type='checkbox' name='messages[]' value=message.id
 
 = simple_form_for Message.new(receiver: @sender), html: {class: 'ui form'} do |f|
   div.ui.action.input
     = f.input_field :body, as: :string
     = f.input :receiver_id, as: :hidden
-    = f.submit  class: 'ui button'
+    = f.submit  
 
-coffee:
-
-  window.delete_checked_messages = ->
-    arr = $('input.ui.checkbox:checked').map ->
-      $(this).attr('data-message-id')
-
-    console.log arr
-
-    $.ajax
-      url: '/messages',
-      data: {ids: arr.get()},
-      type: 'DELETE'
 

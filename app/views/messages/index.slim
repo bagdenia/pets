@@ -3,6 +3,6 @@ h1 Your messages
 table.ui.table
   - @chats.each do |message|
     tr
-      td = link_to message.opponent(current_user).email, chat_room_path(message)
+      td = link_to message.opponent().first.email, chat_room_path(message)
       td = message.body
       td = l message.created_at, format: :short

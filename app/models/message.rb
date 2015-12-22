@@ -4,7 +4,7 @@ class Message < ActiveRecord::Base
 
 
   def self.conversation user1, user2
-    where 'receiver_id = ? and sender_id = ? or sender_id = ? and receiver_id = ?',
+    where 'receiver_id = ? and sender_id = ? and not receiver_deleted  or sender_id = ? and receiver_id = ? and not sender_deleted',
       user1.id, user2.id,
       user1.id, user2.id
   end
