@@ -25,7 +25,7 @@ h1 Chat with #{@sender.email}
 
 = simple_form_for Message.new(receiver: @sender), html: {class: 'ui form'} do |f|
   div.ui.action.input
-    = f.input_field :body, as: :string
+    = f.input_field :body, as: :string, autofocus: :true
     = f.input :receiver_id, as: :hidden
     = f.submit  
 
