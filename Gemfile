@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-source 'https://rails-assets.org'
 
 ruby '2.2.2'
 
@@ -84,11 +83,9 @@ gem 'coffee-rails', '~> 4.0.0' # Use CoffeeScript for .coffee assets and views
 gem 'jquery-rails' # Use jquery as the JavaScript library
 gem 'jquery-ui-rails'
 #gem 'xdan-datepicker', git: 'bootstrap-datepicker-rails'
-# gem 'rails-assets-underscore'
 gem 'alertify-rails'
 gem 'select2-rails'
 
-gem 'rails-assets-jsondiffpatch'
 
 # html
 
@@ -104,24 +101,8 @@ gem 'kaminari'
 gem 'simple_form'
 gem 'sanitize'
 
-# search
-
-gem 'sunspot_rails'
-=begin
-gem 'sunspot',        git: 'https://github.com/sunspot/sunspot.git'
-# gem 'sunspot_solr', '2.0.0',   git: 'https://github.com/sunspot/sunspot.git'
-gem 'sunspot_solr',   git: 'https://github.com/simmogs/sunspot.git'
-gem 'sunspot_rails',  git: 'https://github.com/sunspot/sunspot.git', require: "sunspot_rails"
-gem 'sunspot_cell',   git: 'https://github.com/zheileman/sunspot_cell.git'
-gem 'sunspot_cell_jars'
-=end
-gem 'progress_bar'
-
-gem 'codemirror-rails'
-
 gem 'queryable_array'
 gem 'hashdiff'
-gem 'jira-ruby', :require => 'jira'
 
 
 gem 'pry'
@@ -131,7 +112,6 @@ gem 'pry-doc'
 gem 'table_print'
 gem 'awesome_print'
 group :development, :test do
-  gem 'sunspot_solr'
 
   gem 'byebug' # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   # gem 'web-console', '~> 2.0' # Access an IRB console on exception pages or by using <%= console %> in views
