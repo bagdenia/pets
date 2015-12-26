@@ -1,0 +1,38 @@
+{
+    "master_picture": "app/assets/images/master_picture.png",
+    "favicon_design": {
+        "ios": {
+            "picture_aspect": "background_and_margin",
+            "background_color": "#ffffff",
+            "margin": "14%",
+            "app_name": "Leave a Pet"
+        },
+        "desktop_browser": [
+
+        ],
+        "windows": {
+            "picture_aspect": "no_change",
+            "background_color": "#da532c",
+            "on_conflict": "override",
+            "app_name": "Leave a Pet"
+        },
+        "android_chrome": {
+            "picture_aspect": "no_change",
+            "theme_color": "#ffffff",
+            "manifest": {
+                "name": "Leave a Pet",
+                "display": "browser",
+                "orientation": "not_set",
+                "on_conflict": "override"
+            }
+        },
+        "safari_pinned_tab": {
+            "picture_aspect": "silhouette",
+            "theme_color": "#5bbad5"
+        }
+    },
+    "settings": {
+        "scaling_algorithm": "Mitchell",
+        "error_on_image_too_small": false
+    }
+}

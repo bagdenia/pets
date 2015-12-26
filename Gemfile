@@ -165,6 +165,7 @@ group :development, :test do
 end
 
 group :development do
+  # gem 'rails_real_favicon'
   gem 'quiet_assets'
   gem 'ctags-bundler'
   gem 'rack-livereload'
