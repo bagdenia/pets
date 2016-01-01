@@ -745,6 +745,3 @@ DEPENDENCIES
   turbolinks
   uglifier (>= 1.3.0)
   whiny_validation
-
-BUNDLED WITH
-   1.11.2
