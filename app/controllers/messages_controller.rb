@@ -2,7 +2,9 @@ class MessagesController < ApplicationController
 
   before_action only: [:show, :new] do
     @sender = User.find params[:user_id]
-    @messages = Message.conversation(current_user, @sender).order('created_at desc')
+    @messages = Message.conversation(current_user, @sender).
+                        order('created_at desc').
+                        limit(15).reverse
   end
 
   # all chat rooms

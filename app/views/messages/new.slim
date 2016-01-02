@@ -2,7 +2,7 @@ h1 Chat with #{@sender.email}
 
 = form_for :messages, url: '/messages/bulk_operation'do |f|
   .ui.menu
-    .ui  
+    .ui.action.input
     .right.menu
       /a.item onclick='delete_checked_messages()' Delete
       input.ui.input [type='submit'
@@ -14,18 +14,26 @@ h1 Chat with #{@sender.email}
       a.item
         | Unread
 
-  table.ui.table
-    - @messages.each do |message|
-      tr
-        td = message.sender.email
-        td = message.body.to_s
-        td = l message.created_at, format: :short
-        td
-          input.ui.checkbox type='checkbox' name='messages[]' value=message.id
+  .ui.segment
+    .ui.comments
+      - @messages.each do |message|
+        .comment
+          a.avatar: span.ui.label class=('pink' if message.sender == current_user)
+            = message.sender.email.first(2).upcase
+          .content
+            a.author = message.sender.email
+            .metadata
+              span.date = l message.created_at, format: :short
+            .text = message.body.to_s
+            /input.ui.checkbox type='checkbox' name='messages[]' value=message.id
+            /.actions
+              a
+                i.expand.icon
+                |  Full-screen 
 
 = simple_form_for Message.new(receiver: @sender), html: {class: 'ui form'} do |e|
   div.ui.action.input
-    = e.input_field :body, as: :string, autofocus: :true
+    = e.input_field :body, as: :string, autofocus: :true, autocomplete: :off
     = e.input :receiver_id, as: :hidden
     = e.submit  
 
