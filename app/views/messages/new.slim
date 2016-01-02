@@ -2,9 +2,10 @@ h1 Chat with #{@sender.email}
 
 = form_for :messages, url: '/messages/bulk_operation'do |f|
   .ui.menu
-    .ui.action.input
-    .right.menu
-      /a.item onclick='delete_checked_messages()' Delete
+    a.action.item href=messages_path
+      i.comments.outline.icon
+      | Все сообщения
+    /.right.menu
       input.ui.input [type='submit'
                       value='Delete Selected'
                       name='operation_type'
@@ -24,7 +25,8 @@ h1 Chat with #{@sender.email}
             a.author = message.sender.email
             .metadata
               span.date = l message.created_at, format: :short
-            .text = message.body.to_s
+            .text
+              = message.body.to_s
             /input.ui.checkbox type='checkbox' name='messages[]' value=message.id
             /.actions
               a
@@ -32,9 +34,12 @@ h1 Chat with #{@sender.email}
                 |  Full-screen 
 
 = simple_form_for Message.new(receiver: @sender), html: {class: 'ui form'} do |e|
-  div.ui.action.input
+  .ui.action.input
     = e.input_field :body, as: :string, autofocus: :true, autocomplete: :off
     = e.input :receiver_id, as: :hidden
-    = e.submit  
+    button.ui.button type='Submit'
+      i.edit.icon
+      | Отправить
+    /= e.submit value: 'Послать', class: 'ui button'
 
 
