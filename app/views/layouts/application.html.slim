@@ -35,9 +35,9 @@ html
 
   body
     .ui.one.column.stackable.center.aligned.page.grid
-      .column.twelve.wide.left.aligned
-        .ui.menu
-          a.item href=pets_path class=('active' if params[:controller] == 'pets')
+      .column.twenty.wide.left.aligned
+        .ui.pink.inverted.menu
+          a.item href=pets_path class=('active' if params[:controller] == 'huets')
             i.icon.pointing.left
             | Оставить
           /a.item href=pets_path class=('active' if params[:controller] == 'pets')
@@ -56,15 +56,16 @@ html
             i.icon.paw
             | Животные
           - if current_user 
-            a.item href=messages_path class=('active' if params[:controller] == 'devise/users')
+            a.item href=messages_path class=('active' if params[:controller] == 'messages')
               | Сообщения
-          - else
-            a.item href=new_user_session_path class=('active' if params[:controller] == 'devise/users')
-              | Регистрация
-          = link_to 'Выход', destroy_user_session_path, method: :delete,class:"item"
-          - if current_user
-             .right.menu
-             .item
-               | Привет, #{current_user.email}
-        .ui.segment.piled
+          .ui.pink.inverted.right.menu
+            - if current_user
+               .item
+                 | Hi, #{current_user.email}
+            - if current_user 
+              = link_to 'Выход', destroy_user_session_path, method: :delete,class:"item"
+            - else
+              a.item href=new_user_session_path class=('active' if params[:controller] == 'devise/users')
+                | Регистрация
+        .ui
           = yield
