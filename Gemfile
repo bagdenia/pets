@@ -10,6 +10,9 @@ gem 'rails_12factor',  group: :production
 gem 'dotenv-rails',       group: [:development,  :test]
 gem 'dotenv-deployment',  group: [:development,  :test]
 
+gem 'russian'
+gem 'rails_admin-i18n'
+gem 'rails-i18n'
 
 # infrastructure
 # gem "resque", "~> 2.0.0.pre.1", github: "resque/resque"
