@@ -33,16 +33,16 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
 
-  /body
   /body style='background: url("http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/halftone.png");'
   /body style='background: url("http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/symphony.png");'
   /body style='background: url("http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/logo_x_pattern.png");'
   /body style='background: url("http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/leather_1.png");'
   /body style='background: url("http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/confectionary.png");'
-  body style='background: url("http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/paper_fibers.png");'
+  /body style='background: url("http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/paper_fibers.png");'
+  body
     .ui.one.column.stackable.center.aligned.page.grid
       .column.twenty.wide.left.aligned
-        .ui.pink.inverted.menu
+        .ui.pink.inverted.menu.bottom.attached
           a.item href=pets_path class=('active' if params[:controller] == 'huets')
             i.icon.pointing.left
             | Оставить
