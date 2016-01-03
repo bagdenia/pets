@@ -12,6 +12,7 @@ gem 'dotenv-deployment',  group: [:development,  :test]
 
 gem 'russian'
 gem 'rails_admin-i18n'
+gem 'devise-i18n'
 gem 'rails-i18n'
 
 # infrastructure
