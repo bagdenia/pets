@@ -1,10 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe "Pets", type: :request do
-  describe "GET /pets" do
-    it "works! (now write some real specs)" do
-      get pets_path
-      expect(response).to have_http_status(200)
-    end
+RSpec.describe 'Pets resource', type: :request do
+  it "sends you to login if you are not authenticated" do
+    get pets_path
+    expect(response).to redirect_to '/users/sign_in'
   end
 end
