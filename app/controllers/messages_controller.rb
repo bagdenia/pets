@@ -21,6 +21,9 @@ class MessagesController < ApplicationController
 
   # all messages with this user
   def new
+    if @sender == current_user then
+      redirect_to root_path
+    end
   end
 
   def create
@@ -53,7 +56,7 @@ class MessagesController < ApplicationController
       # msgs.select {|e| e. his?(current_user) }.each {|e| e.update! receiver_deleted: true}
     when "Delete Selected"
       msgs.select {|e| e.mine?(current_user) }.each {|e| e.update! sender_deleted: true}
-      msgs.select {|e| e. his?(current_user) }.each {|e| e.update! receiver_deleted: true}
+      msgs.select {|e| e.his?(current_user) }.each {|e| e.update! receiver_deleted: true}
     end
     redirect_to :back
   end

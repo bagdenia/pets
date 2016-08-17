@@ -11,7 +11,7 @@
       label Name
       = f.input_field :name
     .field
-      = f.association :kind
+      = f.association :kind, :label => 'Тип', hint: "#{ link_to ' new', new_kind_path }".html_safe 
     .field
-      = f.input :gender
+      = f.input :gender, collection: ['м','ж'] 
     .actions = f.submit

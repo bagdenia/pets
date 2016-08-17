@@ -22,6 +22,10 @@ class Message < ActiveRecord::Base
     receiver_id == user.id
   end
 
+  def body= arg
+    self[:body] = arg.try {|e| e.gsub(/https?[:\/A-Za-z1-90\?&\.]+/,
+                                      "<a href='\\0'>\\0</a>") }
+  end
 
   def opponent user
     if sender == user then receiver else sender end

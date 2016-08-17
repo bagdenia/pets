@@ -5,14 +5,14 @@ h1 Chat with #{@sender.email}
     a.action.item href=messages_path
       i.comments.outline.icon
       | Все сообщения
-    /.right.menu
+    .right.menu
       input.ui.input [type='submit'
                       value='Delete Selected'
                       name='operation_type'
                       data-disable-with='...']
-      a.item
+      /a.item
         | Read
-      a.item
+      /a.item
         | Unread
 
   .ui.segment
@@ -26,10 +26,10 @@ h1 Chat with #{@sender.email}
             .metadata
               span.date = l message.created_at, format: :short
             .text
-              = message.body.to_s
-            /input.ui.checkbox type='checkbox' name='messages[]' value=message.id
-            /.actions
-              a
+              == message.body.to_s
+            input.ui.checkbox type='checkbox' name='messages[]' value=message.id
+            .actions
+             / a
                 i.expand.icon
                 |  Full-screen 
 

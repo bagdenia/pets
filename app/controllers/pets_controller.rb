@@ -4,7 +4,13 @@ class PetsController < ApplicationController
   # GET /pets
   # GET /pets.json
   def index
-    @pets = current_user.pets.all
+    if params[:uname] and  User.where(uname: params[:uname]).first then
+      @user= User.where(uname: params[:uname]).first
+      @pets = @user.pets
+    else
+      @user= current_user
+      @pets = current_user.pets.all
+    end
   end
 
   # GET /pets/1
@@ -69,6 +75,6 @@ class PetsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pet_params
-      params.require(:pet).permit(:name, :kind_id, :gender)
+      params.require(:pet).permit(:name, :kind_id, :pet_image_id, :gender)
     end
 end

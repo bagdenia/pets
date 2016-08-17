@@ -15,6 +15,23 @@ class UsersController < ApplicationController
 
 
   def show
+    if params[:email] then
+      u = User.where(email: params[:email]).first
+      bundle
+      if u then
+        @user = u
+      end
+    end
+  end
+
+  def email
+    if params[:email] then
+      u = User.where(email: params[:email]).first
+      if u then
+        @user = u
+        redirect_to @user
+      end
+    end
   end
 
   def edit
@@ -30,7 +47,7 @@ class UsersController < ApplicationController
 
   private
 
-    def user_params
-      params.require(:user).permit(:email)
-    end
+  def user_params
+    params.require(:user).permit(:email, :uname)
+  end
 end

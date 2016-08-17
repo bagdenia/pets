@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151203200918) do
+ActiveRecord::Schema.define(version: 20160721145154) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,12 +56,14 @@ ActiveRecord::Schema.define(version: 20151203200918) do
   create_table "pets", force: :cascade do |t|
     t.string   "name"
     t.string   "gender"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.integer  "user_id"
     t.integer  "kind_id"
+    t.integer  "pet_image_id"
   end
 
+  add_index "pets", ["pet_image_id"], name: "index_pets_on_pet_image_id", using: :btree
   add_index "pets", ["user_id"], name: "index_pets_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
@@ -79,6 +81,7 @@ ActiveRecord::Schema.define(version: 20151203200918) do
     t.datetime "updated_at"
     t.float    "lat"
     t.float    "lng"
+    t.string   "uname"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
@@ -87,6 +90,7 @@ ActiveRecord::Schema.define(version: 20151203200918) do
   add_foreign_key "messages", "users", column: "receiver_id"
   add_foreign_key "messages", "users", column: "sender_id"
   add_foreign_key "pet_images", "pets"
+  add_foreign_key "pets", "pet_images"
   add_foreign_key "pets", "pet_kinds", column: "kind_id"
   add_foreign_key "pets", "users"
 end

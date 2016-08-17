@@ -1,8 +1,11 @@
 p#notice = notice
-
+'Привет!'
+p
+  strong Email:
+  = @user.email
 p
   strong Name:
-  = @user.email
+  = @user.uname
 p
   strong Accepted Kinds:
   ul
@@ -14,3 +17,5 @@ p
 = link_to 'Back', users_path
 '|
 = link_to 'Сообщения',new_user_message_path(@user)
+'|
+= link_to 'Животные', animal_path(@user.uname)

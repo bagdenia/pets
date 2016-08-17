@@ -1,0 +1,10 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @pet_kind.name
+p
+
+= link_to 'Edit', kind_path(@pet_kind) 
+'|
+= link_to 'Back',kinds_path 

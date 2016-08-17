@@ -3,6 +3,10 @@ p#notice = notice
 p
   strong Name:
   = @pet.name
+
+- if @pet.images.size > 0
+  p
+    .ui.image.medium = image_tag @pet.default_image.image.try(:url)
 p
   strong Kind:
   = @pet.kind.name

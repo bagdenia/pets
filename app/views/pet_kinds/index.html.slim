@@ -1,0 +1,22 @@
+h1 Pet's kinds 
+
+
+table.ui.table
+  thead
+    tr
+      th Name
+      th
+      th
+      th
+
+  tbody
+    - @pet_kinds.each do |kind|
+      tr
+        td = kind.name
+        td = link_to 'Show', kind_path(kind)
+        td = link_to 'Edit', kinds_path 
+        td = link_to 'Destroy', kind_path(kind), data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+# = link_to 'New kind', new_kind_path

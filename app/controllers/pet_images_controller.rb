@@ -65,6 +65,14 @@ class PetImagesController < ApplicationController
     end
   end
 
+  def set_default_image
+    default_image = params[:id]
+    @pet.update(pet_image_id: default_image)
+
+   redirect_to :back
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_pet_image

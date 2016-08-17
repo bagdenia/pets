@@ -8,9 +8,16 @@ table
       th
 
   .ui.four.cards
-    - (@pet_images*4).each do |pet_image|
+    - (@pet_images).each do |pet_image|
       .card
         .ui.image = image_tag pet_image.image.url
+        -@pet_image = pet_image
+        = link_to set_default_image_pet_image_path(id: pet_image.id),
+          id: pet_image.id, class: 'button ui', method: :post do
+          i.icon.photo
+          | Назначить основным 
+
+
         /.header = pet_image.id
 
     
