@@ -29,6 +29,7 @@ html
     meta name="theme-color" content="#ffffff"
 
     title Оставь животное соседу
+    = content_for :ymaps
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags

@@ -27,7 +27,7 @@ h1 Chat with #{@sender.email}
               span.date = l message.created_at, format: :short
             .text
               == message.body.to_s
-            input.ui.checkbox type='checkbox' name='messages[]' value=message.id
+        input.ui.checkbox type='checkbox' name='messages[]' value=message.id
             .actions
              / a
                 i.expand.icon

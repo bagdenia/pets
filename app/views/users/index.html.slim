@@ -1,21 +1,28 @@
 - @users.each do |u|
   h1 = link_to u.email, user_path(u)
 
-div id='map' style="height: 500px; width: 100%"
-script src="//api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"
+div id='map_index' style="height: 500px; width: 1000px"
+- content_for :ymaps do
+  script src="//api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"
 
 coffee:
   # Дождёмся загрузки API и готовности DOM.
-  ymaps.ready ->
+  unit = ->
     # Создание экземпляра карты и его привязка к контейнеру с
     # заданным id ("map").
-    window.myMap = new (ymaps.Map)('map',
+    window.myMap = new (ymaps.Map)('map_index',
       center: [
         55.76
         37.64
       ]
       zoom: 10)
+
     $.get '/users.json', (users,status,c)->
       myMap.geoObjects.add(new ymaps.Placemark([u.lat,u.lng],
         hintContent: u.email,
         balloonContent: u.balloon)) for u in users
+
+    #$.get '/users/1', (data)->
+    #  alert data.uname
+  
+  ymaps.ready unit

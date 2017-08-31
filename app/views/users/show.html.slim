@@ -1,8 +1,14 @@
 p#notice = notice
-'Привет!'
+= 'Привет ' + @user.uname + '!'
 p
-  strong Email:
+  strong email:
   = @user.email
+p
+  strong lat:
+  = @user.lat
+p
+  strong lng:
+  = @user.lng
 p
   strong Name:
   = @user.uname
@@ -19,3 +25,8 @@ p
 = link_to 'Сообщения',new_user_message_path(@user)
 '|
 = link_to 'Животные', animal_path(@user.uname)
+
+h4 Your location
+div id='map' style="height: 500px; width: 800px"
+- content_for :ymaps do
+  script src="//api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"

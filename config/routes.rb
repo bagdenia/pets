@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   # devise_for :users
   devise_for :users, controllers: {registrations: 'registrations' }
   # resources :users, path: 'my_users',only: [:index, :show, :edit]
-  resources :users, only: [:index, :show, :edit] do
+  resources :users, only: [:index, :show, :edit, :update] do
     resources :messages, only: [:new]
   end
 

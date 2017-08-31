@@ -1,2 +1,3 @@
-- user.pets.each do |pet|
-  img src=pet.images.first.image.url
+h1 = link_to user.uname, user_path(user)
+/- user.pets.each do |pet|
+/   img src=pet.images.first.try(:image).try(:url)

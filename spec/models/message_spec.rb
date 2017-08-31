@@ -8,9 +8,11 @@ RSpec.describe Message, type: :model do
 
     email  = 'ahuli@domain.com'
     email2 = 'bhuli@domain.com'
+    uname = 'bum'
+    uname2 = 'bum2'
     pass   = 'asdlfkjqwer'
-    u1     = User.create! email: email,  password: pass
-    u2     = User.create! email: email2, password: pass
+    u1     = User.create! email: email,  password: pass, uname: uname
+    u2     = User.create! email: email2, password: pass, uname: uname2
 
     message = Message.create! \
       sender:    u1,

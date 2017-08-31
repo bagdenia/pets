@@ -3,7 +3,7 @@ json.array!(@users) do |user|
   # json.url pet_url(pet, format: :json)
   json.pets user.pets do |pet|
     json.extract! pet, :id
-    json.image pet.images.first.image.url
+    json.image pet.images.first.try(:image).try(:url) 
   end
   # json.partial! 'users/balloon.html.slim',
   #                     user: user

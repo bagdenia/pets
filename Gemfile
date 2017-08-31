@@ -6,7 +6,6 @@ gem 'rails', '4.2.5' # Bundle edge Rails instead: gem 'rails', github: 'rails/ra
 
 gem 'puma'
 gem 'rails_12factor',  group: :production
-# gem 'heroku-request-id'
 gem 'dotenv-rails',       group: [:development,  :test]
 gem 'dotenv-deployment',  group: [:development,  :test]
 
@@ -104,6 +103,7 @@ gem 'markdown-rails'
 gem 'kaminari'
 gem 'simple_form'
 gem 'sanitize'
+gem 'cancancan'
 
 gem 'queryable_array'
 gem 'hashdiff'

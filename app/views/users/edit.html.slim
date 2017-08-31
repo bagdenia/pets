@@ -1,0 +1,22 @@
+= form_for @user, url: user_path(@user) do |f|
+  p
+    = f.label :email
+    = f.text_field :email
+  p
+    = f.label :lat
+    = f.text_field :lat
+  p
+    = f.label :lng
+    = f.text_field :lng
+  p
+    = f.label :uname
+    = f.text_field :uname
+
+
+  = f.submit 'Update'
+
+- content_for :ymaps do
+  script src="//api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"
+
+h4 Update your location
+div id='map' style="height: 500px; width: 1000px"
