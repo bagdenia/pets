@@ -27,6 +27,7 @@ class Ability
     can :read, [Pet, User, Pet::Kind, Pet::Image]
     can :manage, Pet, user_id: user.id
     can :manage, Pet::Image, user_id: user.id
+    can :manage, Pet::Kind
     can :manage, User, id: user.id
     can :manage, Message, id: user.id
   end
