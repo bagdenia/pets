@@ -6,7 +6,7 @@ p
 
 - if @pet.images.size > 0
   p
-    .ui.image.medium = image_tag @pet.default_image.image.try(:url)
+    .ui.image.medium = image_tag @pet.default_image.image.try(:url) if @pet.default_image
 p
   strong Kind:
   = @pet.kind.name

@@ -1,6 +1,8 @@
 class PetKindsController < ApplicationController
   before_action :set_kind, only: [:show, :edit, :update, :destroy]
 
+  authorize_resource class: 'Pet::Kind'
+
   def index
     @pet_kinds = Pet::Kind.all
   end

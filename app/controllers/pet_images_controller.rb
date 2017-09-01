@@ -3,7 +3,7 @@ class PetImagesController < ApplicationController
     @pet = Pet.find params[:pet_id]
   end
   before_action :set_pet_image, only: [:show, :edit, :update, :destroy]
-
+  authorize_resource class: 'Pet::Image'
   # GET /pet_images
   # GET /pet_images.json
   def index

@@ -6,7 +6,7 @@ class MessagesController < ApplicationController
                         order('created_at desc').
                         limit(15).reverse
   end
-
+  authorize_resource
   # all chat rooms
   def index
     #@chats = Message.where(receiver: current_user).
