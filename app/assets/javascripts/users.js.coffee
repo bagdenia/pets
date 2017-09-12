@@ -1,13 +1,23 @@
 init = ->
   if (document.getElementById('map') ==null)
-    console.log('does not exist!')
+    console.log('Map box does not exist!')
     return
+
+  if $('.lng').length
+    lat = $('.lat').attr('lat')
+    lng = $('.lng').attr('lng')
+
+  if $('#user_lat').length
+    lat = $('#user_lat').val()
+    lng = $('#user_lng').val()
+
+  if lat == null || lng == null
+    return
+
   myMap = new (ymaps.Map)('map', {
     center: [
-      document.getElementById('user_lat').value
-      document.getElementById('user_lng').value
-      #55.751574
-      #37.573856
+      lat
+      lng
     ]
     zoom: 9
     controls: []
@@ -19,16 +29,15 @@ init = ->
   myMap.controls.add mySearchControl
 
   window.myPlacemark = new (ymaps.Placemark)([
-    document.getElementById('user_lat').value
-    document.getElementById('user_lng').value
-    #55.754952
-    #37.615319
+    lat
+    lng
   ], {},
-    draggable: true
+    draggable: $('#user_lat').length
     preset: 'islands#whiteStretchyIcon')
 
   myMap.geoObjects.add myPlacemark
   myMap.geoObjects.add mySearchResults
+
 
   mySearchResults.events.add 'click', (e) ->
     e.get('target').options.set 'preset', 'islands#redIcon'
