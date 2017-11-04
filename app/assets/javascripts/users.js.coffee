@@ -75,4 +75,3 @@ ready = ->
 
 $(document).on('page:load', ready)
 
-ymaps.ready init

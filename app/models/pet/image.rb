@@ -2,7 +2,8 @@ class Pet
   class Image < ActiveRecord::Base
     belongs_to :pet
     mount_uploader :image, ImageUploader
-    validate :image_size
+    validates_integrity_of :image
+    # validate :image_size
 
    private
 
