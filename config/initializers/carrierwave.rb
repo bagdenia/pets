@@ -13,8 +13,8 @@ CarrierWave.configure do |config|
 
   config.fog_credentials = {
     :provider               => 'AWS',                             # required
-    :aws_access_key_id      => 'AKIAIBYYU5B7XMKPKHWA',            # required
-    :aws_secret_access_key  => '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',     # required
+    :aws_access_key_id      => 'AKIAJMTKMNKDKKKVC42A',            # required
+    :aws_secret_access_key  => '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',     # required
     :region                 => 'us-east-2'                        # optional, defaults to 'us-east-1'
   }
   config.fog_directory  = 'bagdenia-pets'               # required
