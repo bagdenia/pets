@@ -757,3 +757,9 @@ DEPENDENCIES
   turbolinks
   uglifier (>= 1.3.0)
   whiny_validation
+
+RUBY VERSION
+   ruby 2.2.2p95
+
+BUNDLED WITH
+   1.16.1
