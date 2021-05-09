@@ -21,7 +21,7 @@ gem 'sinatra', require: nil
 gem 'sidekiq', require: 'sidekiq/web'
 # gem 'sidetiq', require: 'sidetiq/web'
 gem 'sidetiq', require: 'sidetiq/web', group: :production
-gem 'rails_admin', '0.6.6'
+gem 'rails_admin', '1.4.3'
 gem 'ruby-ntlm', require: 'ntlm/smtp'
 gem 'heroku-api'
 gem 'rest-client'
